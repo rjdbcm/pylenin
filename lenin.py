@@ -3,10 +3,10 @@ import requests
 import json
 
 __title__ = 'PyLenin'
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 __author__ = 'Ross J. Duff'
 __license__ = "GPL"
-
+__apiversion__ = '0.1'
 
 @dataclass
 class remoteError:
@@ -61,7 +61,7 @@ class VersionResp:
 
 
 def http_error_check(resp):
-    if resp.status_code != 200:
+    if resp.status_code == 200:
         return resp.status_code
     else:
         raise requests.HTTPError(resp)
