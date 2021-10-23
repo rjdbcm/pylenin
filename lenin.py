@@ -8,6 +8,7 @@ __author__ = 'Ross J. Duff'
 __license__ = "GPL"
 __apiversion__ = '0.1'
 
+
 @dataclass
 class remoteError:
     code: int
@@ -67,17 +68,16 @@ def http_error_check(resp):
         raise requests.HTTPError(resp)
 
 
-def get_url(url: str) -> bytes:
-    out: bytes
-    resp = requests.get(url)
-    out = resp.content
+def get_url(url: str) -> str:
+    resp: requests.Response = requests.get(url)
+    out = resp.content.decode(resp.encoding)
     http_error_check(resp)
     return out
 
 
-def post_url(url: str, params) -> bytes:
+def post_url(url: str, params) -> str:
     resp = requests.post(url, params=params)
-    out = resp.content
+    out = resp.content.decode(resp.encoding)
     http_error_check(resp)
     return out
 
