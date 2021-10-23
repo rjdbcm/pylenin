@@ -3,7 +3,7 @@ import requests
 import json
 
 __title__ = 'PyLenin'
-__version__ = '0.0.2'
+__version__ = '0.0.4'
 __author__ = 'Ross J. Duff'
 __license__ = "GPL"
 __apiversion__ = '0.1'
